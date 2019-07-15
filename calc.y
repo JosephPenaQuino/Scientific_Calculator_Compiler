@@ -31,6 +31,8 @@ int sym[26];                    /* symbol table */
 %left GE LE EQ NE '>' '<'
 %left '+' '-'
 %left '*' '/'
+%right '^'
+%left '%'
 %left PLUS MINUS AND OR
 %nonassoc UNEG
 %nonassoc UMINUS
@@ -86,6 +88,7 @@ expr:
         | expr OR expr          { $$ = opr(OR, 2, $1, $3);  }
         | '!' expr %prec UNEG   { $$ = opr('!', 1, $2);     }
         | expr '^' expr         { $$ = opr('^', 2, $1, $3); }
+        | expr '%' expr         { $$ = opr('%', 2, $1, $3); }
         ;
 
 %%

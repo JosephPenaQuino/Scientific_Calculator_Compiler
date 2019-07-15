@@ -36,6 +36,7 @@ int ex(nodeType *p) {
         case MINUS:     return sym[p->opr.op[0]->id.i] = sym[p->opr.op[0]->id.i]-1;
         case '!':       return !ex(p->opr.op[0]);
         case '^':       return (int)pow((double)ex(p->opr.op[0]), (double)ex(p->opr.op[1]));
+        case '%':       return ex(p->opr.op[0]) % ex(p->opr.op[1]);
         }
     }
     return 0;
