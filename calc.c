@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "calc.h"
 #include "y.tab.h"
+#include <math.h>
 
 int ex(nodeType *p) {
     if (!p) return 0;
@@ -29,6 +30,12 @@ int ex(nodeType *p) {
         case LE:        return ex(p->opr.op[0]) <= ex(p->opr.op[1]);
         case NE:        return ex(p->opr.op[0]) != ex(p->opr.op[1]);
         case EQ:        return ex(p->opr.op[0]) == ex(p->opr.op[1]);
+        case AND:       return ex(p->opr.op[0]) && ex(p->opr.op[1]);
+        case OR:        return ex(p->opr.op[0]) || ex(p->opr.op[1]);
+        case PLUS:      return sym[p->opr.op[0]->id.i] = sym[p->opr.op[0]->id.i]+1;
+        case MINUS:     return sym[p->opr.op[0]->id.i] = sym[p->opr.op[0]->id.i]-1;
+        case '!':       return !ex(p->opr.op[0]);
+        case '^':       return (int)pow((double)ex(p->opr.op[0]), (double)ex(p->opr.op[1]));
         }
     }
     return 0;

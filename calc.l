@@ -6,23 +6,23 @@ void yyerror(char *);
 %}
 
 %%
-// Variables
+
 [a-z]       { 
                 yylval.sIndex = *yytext - 'a';
                 return VARIABLE;
             }
-// Zero Intenger
+
 0           {
                 yylval.iValue = atoi(yytext);
                 return INTEGER;
             }
-// Integer
+
 [1-9][0-9]* {
                 yylval.iValue = atoi(yytext);
                 return INTEGER;
             }
-// Unit operators and braces
-[-()<>=+*/;{}.] {
+
+[-()<>=+*/;{}.^!] {
                 return *yytext;
              }
 
@@ -34,6 +34,10 @@ void yyerror(char *);
 "if"            return IF;
 "else"          return ELSE;
 "print"         return PRINT;
+"++"            return PLUS;
+"--"            return MINUS;
+"&&"            return AND;
+"||"            return OR;
 
 [ \t\n]+        ;       /* ignore whitespace */
 

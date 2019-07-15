@@ -56,7 +56,12 @@ extern int yydebug;
     LE = 266,
     EQ = 267,
     NE = 268,
-    UMINUS = 269
+    PLUS = 269,
+    MINUS = 270,
+    AND = 271,
+    OR = 272,
+    UNEG = 273,
+    UMINUS = 274
   };
 #endif
 /* Tokens.  */
@@ -71,7 +76,12 @@ extern int yydebug;
 #define LE 266
 #define EQ 267
 #define NE 268
-#define UMINUS 269
+#define PLUS 269
+#define MINUS 270
+#define AND 271
+#define OR 272
+#define UNEG 273
+#define UMINUS 274
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -84,7 +94,7 @@ union YYSTYPE
     char sIndex;                /* symbol table index */
     nodeType *nPtr;             /* node pointer */
 
-#line 88 "y.tab.h" /* yacc.c:1909  */
+#line 98 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
