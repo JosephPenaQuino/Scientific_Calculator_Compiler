@@ -14,7 +14,7 @@
 - **(expr)**
 - **var  = expr**
 
-## Comparisons functions implemented:
+### Comparisons functions implemented:
 
 - **expr1 < expr2**
 - **expr1 <= expr2**
@@ -23,13 +23,13 @@
 - **expr1 == expr2**
 - **expr1 != expr2**
 
-## Boolean functions implemented:
+### Boolean functions implemented:
 
 - **!expr**
 - **expr1 && expr2**
 - **expr1 || expr2**
 
-## Precedence rules:
+### Precedence rules:
 
 - **operator ||**
 - **operator &&**
@@ -38,3 +38,19 @@
 - **operator +, -**
 - **operator ***
 - **operator ^**
+
+## Installation
+
+### Prerequisites
+
+- GCC / CC
+- Bison / Yacc
+- Flex / Lex
+- make
+
+### Commands
+
+```shell
+make
+```
+
